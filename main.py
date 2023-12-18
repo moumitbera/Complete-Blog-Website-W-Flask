@@ -34,7 +34,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 # CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POST_DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POST_DATABASE_URI', 'sqlite:///posts.db')
 db = SQLAlchemy()
 db.init_app(app)
 
